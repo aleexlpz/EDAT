@@ -33,17 +33,17 @@ int main()
     g = graph_init();
     if (!g)
     {
-        return -1;
+        return EXIT_FAILURE;
     }
 
     if ((v1 = vertex_initFromString(str1)) == NULL)
     {
-        return -1;
+        return EXIT_FAILURE;
     }
     if ((v2 = vertex_initFromString(str2)) == NULL)
     {
         vertex_free(v1);
-        return -1;
+        return EXIT_FAILURE;
     }
 
     printf("Inserting %s... result...: %d\n", vertex_getTag(v1), graph_newVertex(g, str1));

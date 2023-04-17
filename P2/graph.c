@@ -16,7 +16,7 @@ int get_ind_byID(const Graph *g, int ID)
 {
     if (!g || ID < 0)
     {
-        return -1;
+        return EXIT_FAILURE;
     }
     int i;
 
@@ -27,14 +27,14 @@ int get_ind_byID(const Graph *g, int ID)
             return i;
         }
     }
-    return -1;
+    return EXIT_FAILURE;
 }
 
 int get_ind_bytag(const Graph *g, char *tag)
 {
     if (!g || !tag)
     {
-        return -1;
+        return EXIT_FAILURE;
     }
     int i;
 
@@ -45,7 +45,7 @@ int get_ind_bytag(const Graph *g, char *tag)
             return i;
         }
     }
-    return -1;
+    return EXIT_FAILURE;
 }
 
 void *getvertexbyID(const Graph *g, long ID)
@@ -179,7 +179,7 @@ int graph_getNumberOfVertices(const Graph *g)
 {
     if (!g)
     {
-        return -1;
+        return EXIT_FAILURE;
     }
     return g->num_vertices;
 }
@@ -188,7 +188,7 @@ int graph_getNumberOfEdges(const Graph *g)
 {
     if (!g)
     {
-        return -1;
+        return EXIT_FAILURE;
     }
     return g->num_edges;
 }
@@ -211,7 +211,7 @@ int graph_getNumberOfConnectionsFromId(const Graph *g, long id)
 {
     if (!g || id < 0)
     {
-        return -1;
+        return EXIT_FAILURE;
     }
     int count = 0, j;
     int i = get_ind_byID(g, id);
@@ -258,7 +258,7 @@ int graph_getNumberOfConnectionsFromTag(const Graph *g, char *tag)
 {
     if (!g || !tag)
     {
-        return -1;
+        return EXIT_FAILURE;
     }
     int count = 0, j;
     int i = get_ind_bytag(g, tag);
@@ -305,7 +305,7 @@ int graph_print(FILE *pf, const Graph *g)
 {
     if (!pf || !g)
     {
-        return -1;
+        return EXIT_FAILURE;
     }
     int i, j, numConections, count = 0;
     long *array = NULL;

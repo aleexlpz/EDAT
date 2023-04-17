@@ -65,18 +65,18 @@ int main(int argc, char *argv[])
     int n_elems1, n_elems2, i = 0, j = 0, k = 0, h = 0;
 
     if (!argv[0] || !argv[1] || !argv[2] || argv[3] != NULL)
-        return -1;
+        return EXIT_FAILURE;
 
     /*initialize s1*/
     s1 = stack_init();
     if (!s1)
-        return -1;
+        return EXIT_FAILURE;
 
     f = fopen(argv[1], "r");
     if (!f)
     {
         stack_free(s1);
-        return -1;
+        return EXIT_FAILURE;
     }
 
     fscanf(f, "%d", &n_elems1);
@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
             {
                 float_free(e1[j]);
             }
-            return -1;
+            return EXIT_FAILURE;
         }
 
         if (!stack_push(s1, e1[k]))
@@ -105,7 +105,7 @@ int main(int argc, char *argv[])
             {
                 float_free(e1[j]);
             }
-            return -1;
+            return EXIT_FAILURE;
         }
         k++;
     }
@@ -120,7 +120,7 @@ int main(int argc, char *argv[])
     if (!s2)
     {
         stack_free(s1);
-        return -1;
+        return EXIT_FAILURE;
     }
 
     f = fopen(argv[2], "r");
@@ -128,7 +128,7 @@ int main(int argc, char *argv[])
     {
         stack_free(s1);
         stack_free(s2);
-        return -1;
+        return EXIT_FAILURE;
     }
 
     fscanf(f, "%d", &n_elems2);
@@ -146,7 +146,7 @@ int main(int argc, char *argv[])
             {
                 float_free(e2[j]);
             }
-            return -1;
+            return EXIT_FAILURE;
         }
 
         if (!stack_push(s2, e2[h]))
@@ -157,7 +157,7 @@ int main(int argc, char *argv[])
             {
                 float_free(e2[j]);
             }
-            return -1;
+            return EXIT_FAILURE;
         }
         h++;
     }

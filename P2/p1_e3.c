@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 
     f = fopen(argv[1], "r");
     if(!f){
-        return -1;
+        return EXIT_FAILURE;
     }
 
     graph_readFromFile(f, g);

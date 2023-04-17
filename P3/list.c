@@ -251,7 +251,7 @@ int list_print(FILE *fp, const List *pl, P_ele_print f)
 
     if (pl == NULL || fp == NULL)
     {
-        return -1;
+        return EXIT_FAILURE;
     }
 
     pn = pl->last;

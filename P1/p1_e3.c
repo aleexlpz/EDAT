@@ -10,14 +10,14 @@ int main(int argc, char *argv[])
 
     if(argc != 2){
         printf("No ha introducido ningun fichero.\n");
-        return 0;
+        return EXIT_FAILURE;
     }
 
     g = graph_init();
 
     f = fopen(argv[1], "r");
     if(!f){
-        return -1;
+        return EXIT_FAILURE;
     }
 
     graph_readFromFile(f, g);
@@ -25,5 +25,5 @@ int main(int argc, char *argv[])
     fclose(f);
     graph_print(stdout, g);
     graph_free(g);
-    return 0;
+    return EXIT_SUCCESS;
 }

@@ -88,7 +88,7 @@ void vertex_free (void * v){
 }
 
 long vertex_getId (const Vertex * v){
-  if (!v) return -1;
+  if (!v) return EXIT_FAILURE;
 
   return v->id;
 }
@@ -154,7 +154,7 @@ void * vertex_copy (const void * src){
 }
 
 int vertex_print (FILE * pf, const void * v){
-  if (!pf || !v) return -1;
+  if (!pf || !v) return EXIT_FAILURE;
 
   return fprintf(pf, "[%ld, %s, %d]", vertex_getId(v), vertex_getTag(v), vertex_getState(v));
 }

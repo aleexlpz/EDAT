@@ -24,19 +24,19 @@ int main(int argc, char *argv[])
     if (!f)
     {
         printf("Error opening file");
-        return -1;
+        return EXIT_FAILURE;
     }
     if(graph_readFromFile(f, g) == ERROR)
     {
         printf("Error reading file");
-        return -1;
+        return EXIT_FAILURE;
     }
     fclose(f);
     graph_print(stdout, g);
     if(graph_getNumberOfVertices(g) == 0)
     {
         printf("Error, no vertices");
-        return -1;
+        return EXIT_FAILURE;
     }
     printf("From Vertex id: %ld\n", atol(argv[2]));
     printf("To Vertex id: %ld\n", atol(argv[3]));
@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
     if(v1 == NULL)
     {
         printf("Error getting vertex");
-        return -1;
+        return EXIT_FAILURE;
     }
     
 

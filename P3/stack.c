@@ -102,7 +102,7 @@ size_t stack_size(const Stack *s)
 {
     if (s == NULL)
     {
-        return -1;
+        return EXIT_FAILURE;
     }
     return s->top;
 }
@@ -111,7 +111,7 @@ int stack_print(FILE *fp, const Stack *s, P_stack_ele_print f)
 {
     if (fp == NULL || s == NULL || f == NULL)
     {
-        return -1;
+        return EXIT_FAILURE;
     }
     int i, sum_ele = 0;
     for (i = 0; i < stack_size(s); i++)

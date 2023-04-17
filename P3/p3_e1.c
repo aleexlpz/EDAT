@@ -28,6 +28,7 @@ int main(int argc, char *argv[]){
     delivery_run_plan(stdout, d, vertex_print, vertex_free);
     fclose(f);
     delivery_free(d);
+    
 
 }
 

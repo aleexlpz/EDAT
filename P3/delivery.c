@@ -202,7 +202,7 @@ int delivery_print (FILE *pf, const void *p, p_queue_ele_print f){
   int n=0;
 
   if ((pf == NULL) || (p == NULL)){
-    return -1;
+    return EXIT_FAILURE;
   }
 
   d = (Delivery*) p;

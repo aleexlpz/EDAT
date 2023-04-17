@@ -89,7 +89,8 @@ void vertex_free (void * v){
 }
 
 long vertex_getId (const Vertex * v){
-  if (!v) return -1;
+  if (!v)
+    return EXIT_FAILURE;
 
   return v->id;
 }
@@ -154,7 +155,8 @@ void * vertex_copy (const void * src){
 }
 
 int vertex_print (FILE * pf, const void * v){
-  if (!pf || !v) return -1;
+  if (!pf || !v)
+    return EXIT_FAILURE;
 
   return fprintf(pf, "[%ld, %s, %d, %d]", vertex_getId(v), vertex_getTag(v), vertex_getState(v), vertex_getindex(v));
 }
@@ -173,7 +175,8 @@ Status Vertexsetlabel(Vertex * v, const Label state){
 }
 
 int vertex_getindex (const Vertex * v){
-  if (!v) return -1;
+  if (!v)
+    return EXIT_FAILURE;
   return v->index;
 }
 Status vertex_setindex (Vertex * v, const int ind){

@@ -23,12 +23,12 @@ int main()
 
     if ((v1 = vertex_initFromString(str1)) == NULL)
     {
-        return -1;
+        return EXIT_FAILURE;
     }
     if ((v2 = vertex_initFromString(str2)) == NULL)
     {
         vertex_free(v1);
-        return -1;
+        return EXIT_FAILURE;
     }
     vertex_print(stdout, v1);
     vertex_print(stdout, v2);
@@ -63,5 +63,5 @@ int main()
     vertex_free(v2);
     vertex_free(v3);
 
-    return 0;
+    return EXIT_SUCCESS;
 }

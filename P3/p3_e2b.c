@@ -14,9 +14,9 @@ int main(int argc, char *argv[])
         return 1;
     }
     Status st;
-    int ini, fin;
-    ini = atoi(argv[2]);
-    fin = atoi(argv[3]);
+    long ini, fin;
+    ini = atol(argv[2]);
+    fin = atol(argv[3]);
     FILE *f = fopen(argv[1], "r");
     if (!f)
     {
@@ -36,16 +36,19 @@ int main(int argc, char *argv[])
     }
 
     fclose(f);
+    printf("Input graph:\n");
     graph_print(stdout, g);
     Vertex *v1 = getvertexbyID(g, ini);
     Vertex *v2 = getvertexbyID(g, fin);
-    printf("\n--------DFS------------\n");
+    printf("--------DFS------------\n\n");
+    printf("From Vertex id: %ld\nTo vertex id: %ld\nOutput:\n", ini, fin);
     st = graph_depthSearch(g, v1, v2);
     if (st == ERROR)
     {
         printf("Error searching path\n");
     }
-    printf("\n--------BFS------------\n");
+    printf("\n--------BFS------------\n\n");
+    printf("From Vertex id: %ld\nTo vertex id: %ld\nOutput:\n", ini, fin);
     st = graph_breathSearch(g, ini, fin);
     if (st == ERROR)
     {
