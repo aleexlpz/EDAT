@@ -33,7 +33,6 @@ Vertex **loadData(FILE *pf, int n) {
   if (!pf || (n <= 0)) {
     return NULL;
   }
-  printf("ESTO EN UNA PRUABA Y HAY QU EQUITARLO Loading %d vertices...\n", n);
   data = (Vertex **)malloc(n * sizeof(Vertex *));
   if (!data) {
     return NULL;
